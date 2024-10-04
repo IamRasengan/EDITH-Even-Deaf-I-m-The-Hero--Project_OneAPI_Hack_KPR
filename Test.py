@@ -8,7 +8,6 @@ import pyttsx3
 
 engine = pyttsx3.init()
 
-
 # Load the model for sign language to text (mode 1)
 model_dict = pickle.load(open(r'model.p', 'rb'))
 model = model_dict['model']
@@ -21,68 +20,77 @@ mp_drawing_styles = mp.solutions.drawing_styles
 hands = mp_hands.Hands(static_image_mode=False, min_detection_confidence=0.7)
 
 # Gesture labels (with added "Pause" and "Clear")
-labels_dict = {0: 'Bye-Bye', 1: 'Hello', 2:'Namaste',3:'Sorry',4:'Peace'}
+labels_dict = {0: 'Bye-Bye', 1: 'Hello', 2:'Namaste', 3:'Sorry', 4:'Peace'}
 
 # Buffer to store the detected letters
 letter_buffer = []
 
-# Directory containing images for each class (mode 0)
-Data_Dir = r'Dataset'
+# Directory for video files
+Video_Dir = r'Videos'
 
 def speak_text(text):
     engine.say(text)
     engine.runAndWait()
 
-
-# Function to handle text input (mode 0) and show a corresponding random image
-def text_to_image():
+# Function to handle text input (mode 0) and show a corresponding video
+def text_to_video():
     # Ask the user for input (gesture command)
-    command = input("Enter a command (A, B, C): ").strip().lower()
+    command = input("Enter a command (Bye-Bye, Hello, Namaste, Sorry, Peace): ").strip().lower()
 
     # Map the input command to the corresponding label
     label_key = [key for key, value in labels_dict.items() if value.lower() == command]
-    
+
     if label_key:
         # Get the label index corresponding to the command
         label = label_key[0]
-        # Fetch a random image from the respective folder
-        image_path = get_random_image_from_text(labels_dict[label])
+        # Fetch the video path from the respective folder
+        video_path = get_video_from_text(labels_dict[label])
 
-        if image_path:
-            # Load the image using OpenCV
-            img = cv2.imread(image_path)
-            if img is None:
-                print("Error: Couldn't load the image.")
+        if video_path:
+            # Open and display the video using OpenCV
+            cap = cv2.VideoCapture(video_path)
+            if not cap.isOpened():
+                print("Error: Couldn't load the video.")
                 return
 
-            # Display the random image
-            cv2.imshow('Random Gesture Image', img)
-            cv2.waitKey(0)  # Wait for a key press before closing the window
+            while cap.isOpened():
+                ret, frame = cap.read()
+                if not ret:
+                    break
+
+                # Display the video frame by frame
+                cv2.imshow('Random Gesture Video', frame)
+
+                # Break on 'q' key press
+                if cv2.waitKey(25) & 0xFF == ord('q'):
+                    break
+
+            cap.release()
             cv2.destroyAllWindows()
         else:
-            print("No images found for this label.")
+            print("No videos found for this label.")
     else:
         print("Invalid command entered.")
 
-# Function to randomly select an image from a specified class folder
-def get_random_image_from_text(input_text):
+# Function to get the video path based on the text input
+def get_video_from_text(input_text):
     folder = get_folder_from_text(input_text)
     if folder:
-        class_dir = os.path.join(Data_Dir, folder)
+        class_dir = os.path.join(Video_Dir, folder)  # Use the Video directory
         if os.path.exists(class_dir):
-            image_files = [f for f in os.listdir(class_dir) if f.endswith(('.png', '.jpg', '.jpeg'))]
-            if image_files:
-                random_image = random.choice(image_files)
-                return os.path.join(class_dir, random_image)
+            video_files = [f for f in os.listdir(class_dir) if f.endswith(('.mp4', '.avi', '.mov'))]
+            if video_files:
+                random_video = random.choice(video_files)
+                return os.path.join(class_dir, random_video)
             else:
-                print(f"No images found in folder {folder}")
+                print(f"No videos found in folder {folder}")
         else:
             print(f"Folder {folder} does not exist.")
     else:
         print(f"No matching folder found for input: '{input_text}'")
     return None
 
-# Function to map text input (like 'A', 'B', 'C') to the corresponding folder number
+# Function to map text input (like 'Bye-Bye', 'Hello', etc.) to the corresponding folder number
 def get_folder_from_text(input_text):
     for folder_num, label in labels_dict.items():
         if label.lower() == input_text.lower():
@@ -130,15 +138,15 @@ def sign_language_to_text():
             y1 = int(min(y_) * H)
 
             x2 = int(max(x_) * W)
-            y2 = int(max(y_) * H) 
+            y2 = int(max(y_) * H)
 
             if len(data_aux) == 42:
                 prediction = model.predict([np.asarray(data_aux)])
-                predicted_character = labels_dict[int(prediction[0])]  
+                predicted_character = labels_dict[int(prediction[0])]
                 speak_text(predicted_character)
                 cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 0), 4)
                 cv2.putText(frame, predicted_character, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.3, (0, 0, 0), 3,
-                cv2.LINE_AA)
+                            cv2.LINE_AA)
         cv2.imshow('Sign Language Detection', frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -149,11 +157,11 @@ def sign_language_to_text():
 
 # Main program logic
 
-mode = input("Enter 1 for sign language to text or 0 for text to sign language (image): ").strip()
+mode = input("Enter 1 for sign language to text or 0 for text to sign language (video): ").strip()
 
 if mode == '1':
     sign_language_to_text()
 elif mode == '0':
-    text_to_image()
+    text_to_video()  # Call text_to_video function instead of text_to_image
 else:
     print("Invalid mode selected. Please enter 1 or 0.")
