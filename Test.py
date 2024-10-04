@@ -4,7 +4,9 @@ import cv2
 import mediapipe as mp
 import numpy as np
 import random
+import pyttsx3
 
+engine = pyttsx3.init()
 
 
 # Load the model for sign language to text (mode 1)
@@ -16,10 +18,10 @@ mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 
-hands = mp_hands.Hands(static_image_mode=False, min_detection_confidence=0.5)
+hands = mp_hands.Hands(static_image_mode=False, min_detection_confidence=0.7)
 
 # Gesture labels (with added "Pause" and "Clear")
-labels_dict = {0: 'Namaste', 1: 'Bye-Bye', 2:'Hello',3:'Sorry',4:'Peace'}
+labels_dict = {0: 'Bye-Bye', 1: 'Hello', 2:'Namaste',3:'Sorry',4:'Peace'}
 
 # Buffer to store the detected letters
 letter_buffer = []
@@ -27,6 +29,9 @@ letter_buffer = []
 # Directory containing images for each class (mode 0)
 Data_Dir = r'Dataset'
 
+def speak_text(text):
+    engine.say(text)
+    engine.runAndWait()
 
 
 # Function to handle text input (mode 0) and show a corresponding random image
@@ -130,6 +135,7 @@ def sign_language_to_text():
             if len(data_aux) == 42:
                 prediction = model.predict([np.asarray(data_aux)])
                 predicted_character = labels_dict[int(prediction[0])]  
+                speak_text(predicted_character)
                 cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 0), 4)
                 cv2.putText(frame, predicted_character, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.3, (0, 0, 0), 3,
                 cv2.LINE_AA)
