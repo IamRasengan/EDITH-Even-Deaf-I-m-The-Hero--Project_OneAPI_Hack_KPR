@@ -20,7 +20,7 @@ mp_drawing_styles = mp.solutions.drawing_styles
 hands = mp_hands.Hands(static_image_mode=False, min_detection_confidence=0.7)
 
 # Gesture labels (with added "Pause" and "Clear")
-labels_dict = {0: 'Bye-Bye', 1: 'Hello', 2:'Namaste', 3:'Sorry', 4:'Peace'}
+labels_dict = {0: 'Indian', 1: 'Hello', 2:'Bye-Bye', 3:'I am', 4:'Teacher',5:'Thank you',6:'Welcome',7:'Sorry',8:'Namaste',9:'Name',10:'Practice',11:'Good',12:'Bad',13:'Weak',14:'Thin',15:'Strong',16:'Peace',17:'Question',18:'Answer',19:'Time'}
 
 # Buffer to store the detected letters
 letter_buffer = []
