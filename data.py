@@ -7,7 +7,7 @@ DATA_DIR = 'Dataset'
 if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
 
-number_of_classes = 2
+number_of_classes = 5
 dataset_size = 200
 
 # Use the appropriate camera index (try 0 if 2 doesn't work)
