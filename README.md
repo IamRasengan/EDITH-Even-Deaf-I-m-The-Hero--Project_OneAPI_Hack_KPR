@@ -40,8 +40,11 @@ Communication is the exchange of thoughts and messages through various means suc
 ## Webpage Development
         We have completed the model by developing a website with React.js and Tailwind CSS which allows the user to use our model in an effective and productive manner.
 
-##webpage
+## Webpage
 
+![WhatsApp Image 2024-10-05 at 10 00 14_306545a5](https://github.com/user-attachments/assets/526a99f8-e2d3-4ba4-ad3d-376fafcb9bce)
+![WhatsApp Image 2024-10-05 at 10 01 12_e0c83d28](https://github.com/user-attachments/assets/f1931c5e-7c7d-4655-8867-cad6611441c4)
+![WhatsApp Image 2024-10-05 at 10 01 31_521a2d58](https://github.com/user-attachments/assets/67011264-61d3-4783-97ec-3be28c4647bb)
 
 ## Features
 
