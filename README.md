@@ -1,4 +1,6 @@
-![image](https://github.com/user-attachments/assets/8d895b04-8747-4d39-9e08-75361af603d8)## EDITH (EVEN DEAF, I'M THE HERO)
+![image](https://github.com/user-attachments/assets/8d895b04-8747-4d39-9e08-75361af603d8)
+
+# EDITH (EVEN DEAF, I'M THE HERO)
 
 ## Aim
 To develop an efficient model of a Sign Language interpreter exclusive for Indian Sign Language(ISL) 
