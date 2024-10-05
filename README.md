@@ -1,5 +1,4 @@
-![image](https://github.com/user-attachments/assets/8d895b04-8747-4d39-9e08-75361af603d8)
-
+![WhatsApp Image 2024-10-04 at 13 02 25_4c039597](https://github.com/user-attachments/assets/8fc1ec1d-fba2-4c87-a82a-e4fa4ea42be7)
 # EDITH (EVEN DEAF, I'M THE HERO)
 
 ## Aim
@@ -39,6 +38,9 @@ Communication is the exchange of thoughts and messages through various means suc
         After every process, the Machine is now able to figure out the gesture which the user is posing and gives out the word and its speech that the sign corresponds to and can do vice versa: ie Our EDITH is capable of changing the given input word into its corresponding sign as a video.
 ## Webpage Development
         We have completed the model by developing a website with React.js and Tailwind CSS which allows the user to use our model in an effective and productive manner.
+
+##webpage
+
 
 ## Features
 
