@@ -22,10 +22,10 @@ To address this gap, our model, EDITH, aims to function as a bridge, filling the
 Communication is the exchange of thoughts and messages through various means such as speech, signals, behavior, and visuals. Deaf and Mute (D&M) individuals use their hands to express gestures. EDITH serves as an interpreter between D&M individuals and others, helping the latter understand the signs made by the former.
 
 ## Pre-Requisites
-Python
-React.js
-OpenCV
-Basic knowledge of Machine Learning
+1. Python
+2. React.js
+3. OpenCV
+4. Basic knowledge of Machine Learning
 
 ## Methology
 
@@ -46,9 +46,9 @@ This prototype is special for indian sign language as we believe this is the fir
 This model also shines bright as a learning and teaching tool for Indian Sign Language.
 
 ## Future Impact
-Social Impact:
+- Social Impact:
     Makes communication between sign language users and non-signers easier and more accessible.
-Accessibility:
+- Accessibility:
     Real-time sign language recognition can improve access to services in environments such as hospitals, police stations, government offices, and public transportation, where communication is crucial but interpreters may not always be available
 
 ## Conclusion
