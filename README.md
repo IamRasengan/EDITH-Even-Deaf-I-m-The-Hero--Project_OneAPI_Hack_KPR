@@ -32,16 +32,25 @@ Basic knowledge of Machine Learning
 ### Data collection
     Here, the dataset is defined by the programmer. This specifically uses OpenCV to collect the datasets for the signs of words.
 ### Data processing
-    Here, The collected dataset is processed thoroughly  
-training
-testing
-webpage development
+    Here, The collected dataset is processed thoroughly by the Machine and it learns the joints in our hands and also the gestures that we are posing.
+### Training
+        Now, The processed dataset is gone thorugh a set of codes where the Machine deeply learns the indepth meaning of the image where the code is given by the programmer.
+### Testing
+        After every process, the Machine is now able to figure out the gesture which the user is posing and gives out the word and its speech that the sign corresponds to and can do vice versa: ie Our EDITH is capable of changing the given input word into its corresponding sign as a video.
+## Webpage Development
+        We have completed the model by developing a website with React.js and Tailwind CSS which allows the user to use our model in an effective and productive manner.
 
 ## Features
 
 This prototype is special for indian sign language as we believe this is the first dedicated model which can interpret in both ways, ie from *Sign* to *Word* and *Speech* and *Word* to *A Sign video*. This builds the bridge between Deaf & Mute People and Ordinary People.
 This model also shines bright as a learning and teaching tool for Indian Sign Language.
 
+## Future Impact
+Social Impact:
+    Makes communication between sign language users and non-signers easier and more accessible.
+Accessibility:
+    Real-time sign language recognition can improve access to services in environments such as hospitals, police stations, government offices, and public transportation, where communication is crucial but interpreters may not always be available
 
-
+## Conclusion
+Our EDITH is designed to bridge the communication gap between sign language users and non-signers by leveraging AI to translate hand gestures into text in real time. This project aims to foster inclusivity and empower the deaf and hard-of-hearing community by providing a tool that enables seamless communication without the need for interpreters.
 
