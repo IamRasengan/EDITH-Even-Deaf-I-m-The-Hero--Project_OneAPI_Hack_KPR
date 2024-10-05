@@ -1,4 +1,5 @@
-![WhatsApp Image 2024-10-04 at 13 02 25_4c039597](https://github.com/user-attachments/assets/8fc1ec1d-fba2-4c87-a82a-e4fa4ea42be7)
+![WhatsApp Image 2024-10-05 at 10 04 33_41ed6854](https://github.com/user-attachments/assets/c41ba752-1b28-4c5c-a08a-9a59b4410dbd)
+
 # EDITH (EVEN DEAF, I'M THE HERO)
 
 ## Aim
