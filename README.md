@@ -51,7 +51,7 @@ Communication is the exchange of thoughts and messages through various means suc
 This prototype is special for indian sign language as we believe this is the first dedicated model which can interpret in both ways, ie from *Sign* to *Word* and *Speech* and *Word* to *A Sign video*. This builds the bridge between Deaf & Mute People and Ordinary People.
 This model also shines bright as a learning and teaching tool for Indian Sign Language.
 
-## Future Impact
+## Future Impacts
 - Social Impact:
     Makes communication between sign language users and non-signers easier and more accessible.
 - Accessibility:
